@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./travel_planner.db:/app/travel_planner.db
+    environment:
+      - DATABASE_URL=sqlite:///./travel_planner.db
+      - DEBUG=false
+    restart: unless-stopped
